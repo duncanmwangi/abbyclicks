@@ -68,7 +68,7 @@
 
     <!-- Logo -->
 
-    <a href="{{ route('dashboard') }}" class="logo">
+    <a href="{{ route('dashboard') }}" class="logo"> 
 
       <!-- mini logo for sidebar mini 50x50 pixels -->
 
