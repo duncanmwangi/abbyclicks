@@ -47,6 +47,14 @@ Route::group(['prefix' => 'adv', 'middleware' => ['auth','checkrole:advertiser']
 	Route::get('campaigns/{campaign}/edit', 'CampaignsController@edit')->name('advertiser.campaigns.edit');
 	Route::put('campaigns/{campaign}/edit', 'CampaignsController@update')->name('advertiser.campaigns.update');
 	Route::delete('campaigns/{campaign}', 'CampaignsController@destroy')->name('advertiser.campaigns.destroy');
+
+
+	Route::get('campaigns/{campaign}/adverts/create', 'CampaignsController@create')->name('advertiser.adverts.create');
+	Route::post('campaigns/{campaign}/adverts', 'CampaignsController@store')->name('advertiser.adverts.store');
+	Route::get('campaigns/{campaign}/adverts/{advert}', 'CampaignsController@show')->name('advertiser.adverts.show');
+	Route::get('campaigns/{campaign}/adverts/{advert}/edit', 'CampaignsController@edit')->name('advertiser.adverts.edit');
+	Route::put('campaigns/{campaign}/adverts/{advert}/edit', 'CampaignsController@update')->name('advertiser.adverts.update');
+	Route::delete('campaigns/{campaign}/adverts/{advert}', 'CampaignsController@destroy')->name('advertiser.adverts.destroy');
 });
 
 //publisher routes

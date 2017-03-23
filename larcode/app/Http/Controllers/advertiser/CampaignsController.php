@@ -58,9 +58,9 @@ class CampaignsController extends Controller
     {
         if(!$this->checkCampaignOwnership($campaign)) 
             return redirect()->route('advertiser.campaigns.index')
-                   ->with('warning','The campaign does not belong to your account.');
-                   
-        return view('advertiser.campaigns.show', compact('campaign'));
+                   ->with('warning','The campaign does not belong to your account.');  
+        $adverts = $campaign->adverts()->paginate(10);
+        return view('advertiser.campaigns.show', compact('campaign','adverts'));
     }
 
     /**
