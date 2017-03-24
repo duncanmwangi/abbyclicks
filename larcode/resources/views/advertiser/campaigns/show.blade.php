@@ -23,6 +23,8 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>Section</th>
+                  <th>state</th>
                   <th>status</th>
                   <th>Date Created</th>
                   <th>Action</th>
@@ -32,11 +34,19 @@
                     <tr>
                       <td>{{ $advert->id }}</td>
                       <td><a href="{{route('advertiser.adverts.show',['campaign'=>$campaign->id,'advert'=>$advert->id])}}">{{ $advert->name }}</a></td>
+                      <td>{{ $advert->section->name }}</td>
                       <td>
                         <span class="label 
-                        @if($campaign->status=='RUNNING') label-success @endif
-                        @if($campaign->status=='ACTIVE') label-info @endif
-                        @if($campaign->status=='PAUSED') label-warning @endif
+                        @if($advert->state=='PUBLISHED') label-success @endif
+                        @if($advert->state=='DRAFT') label-warning @endif
+                        ">{{ $advert->state }}</span>
+                      </td>
+                      <td>
+                        <span class="label 
+                        @if($advert->status=='RUNNING' || $advert->status=='APPROVED') label-success @endif
+                        @if($advert->status=='REVIEW') label-info @endif
+                        @if($advert->status=='PAUSED') label-warning @endif
+                        @if($advert->status=='DECLINED') label-danger @endif
                         ">{{ $advert->status }}</span>
                       </td>
                       <td>{{ $advert->created_at->diffForHumans() }}</td>

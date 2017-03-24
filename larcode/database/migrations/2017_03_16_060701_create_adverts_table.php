@@ -17,6 +17,7 @@ class CreateAdvertsTable extends Migration
             $table->increments('id');
             $table->integer('campaign_id');
             $table->integer('section_id');
+            $table->varchar('name',30);
             $table->text('banner_path');
             $table->text('redirect_url');
             $table->decimal('spend_limit',9,2);
