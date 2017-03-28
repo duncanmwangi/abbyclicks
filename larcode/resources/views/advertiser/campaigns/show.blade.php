@@ -9,13 +9,13 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        @include('partials.notifications')
         @if(!empty($campaign->description))
           <p>
             <span style="font-weight: bold;">Description: </span>
             {{$campaign->description}}
           </p>
         @endif
+        @include('partials.notifications')
 
         <h4 style="margin-top: 30px; text-decoration: underline;">Campaign Adverts <a href="{{ route('advertiser.adverts.create',$campaign->id)}}" class="btn btn-primary btn-xs" style="margin: 0px 0px 0px 30px;">Create New Advert</a></h4>
         <div class="box-body table-responsive no-padding">

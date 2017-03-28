@@ -28,4 +28,18 @@ class CampaignRequest extends FormRequest
             'description' => 'required',
         ];
     }
+    public function messages()
+    {
+        return [
+            //'name.required' => ':attribute is required',
+        ];
+    }
+
+    public function attributes()
+    {
+        return[
+            //'name' => 'NAMEEEEEE', 
+        ];
+
+    }
 }
